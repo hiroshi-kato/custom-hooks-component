@@ -1,14 +1,15 @@
-import { useState } from 'react'
+import { useChecks } from './hooks/useChecks'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isAllChecked, AlphabetChecks] = useChecks(['a', 'b', 'c'])
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={()=>setCount(prev=>prev+1)}>plus!</button>
+      <p>好きなアルファベットをチェックしてください。</p>
+      <AlphabetChecks />
+      <button disabled={!isAllChecked}>次へ</button>
     </div>
-  )
+  );
 }
 
 export default App
